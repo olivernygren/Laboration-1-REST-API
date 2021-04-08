@@ -64,17 +64,30 @@ let products =
     calories: 716,
     price: 99,
     id: 10
-  },
+  }
 ]
 
 app.use(express.json());
 
+// Gets the objects from the product array
 app.get('/', (req, res) => {
-  res.json('Whaddup Cynthia?')
+  res.json(products)
+})
+
+// Pushes a new object (Yoghurt) into the product array
+app.post('/', (req, res) => {
+  products.push(req.body)
+  res.status(201).json(req.body)
+})
+
+// Deletes rice from the product array
+app.delete('/', (req, res) => {
+  const deletedProduct = products.splice(4, 1)
+  res.json(deletedProduct)
 })
 
 app.listen(port, (req, res) => {
-  console.log('Server is running at http://localhost:8000')
+  console.log(`Server is running on http://localhost${port}`)
 })
 
 
