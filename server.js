@@ -69,9 +69,16 @@ let products =
 
 app.use(express.json());
 
-// Gets the objects from the product array
+// Gets all objects from the product array
 app.get('/', (req, res) => {
   res.json(products)
+})
+
+// Get product with specific ID
+app.get('/product', (req, res) => {
+  const itemID = 3
+  const item = products.find(p => p.id === itemID);
+  res.json(item)
 })
 
 // Pushes a new object (Yoghurt) into the product array
@@ -82,8 +89,12 @@ app.post('/', (req, res) => {
 
 // Deletes rice from the product array
 app.delete('/', (req, res) => {
-  const deletedProduct = products.splice(4, 1)
-  res.json(deletedProduct)
+  const deletedProduct = products.splice(4, 1) // saves the spliced product array
+  res.json(deletedProduct) // outputs the array
+})
+
+app.put('/', (req, res) => {
+
 })
 
 app.listen(port, (req, res) => {

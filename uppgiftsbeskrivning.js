@@ -1,5 +1,5 @@
 
-// CRUD - GET, DELETE, PUT, PATCH ska vara med
+// CRUD - GET, DELETE, PUT, POST ska vara med
 
 // GET hämtar
 // POST lägger till
@@ -15,7 +15,7 @@
 // Testa API med REST Client
 
 // G-krav:
-// 1. Innehåller minst 4 endpoints, GET/PUT/PATCH/DELETE
+// 1. Innehåller minst 4 endpoints, GET/PUT/POST/DELETE
 // 2. Samtliga endpoint ska nås med REST Client
 // 3. Data som APIet hanterar sparas lokalt i serverfilen
 // 4. Git & github används
@@ -25,6 +25,6 @@
 // VG-krav:
 // 1. G.krav är uppfyllda
 // 2. All data sparas i JSON-fil ist för i serverfilen
-// 3. Datan i JSON-filen ska uppdateras då något läggs till uppdateras eller tas bort
+// 3. Datan i JSON-filen ska uppdateras då något läggs till, uppdateras eller tas bort
 // 4. Ett simpelt klientgränssnitt ska finnas för att anropa APIets olika endpoints, samt visa resultatet av ett GET-anrop
-// 5. Ytterligare en GEt-endpoint ska läggas till där det går att hämta ett specifikt objekt
+// 5. Ytterligare en GET-endpoint ska läggas till där det går att hämta ett specifikt objekt
