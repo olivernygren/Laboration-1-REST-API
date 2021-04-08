@@ -1,0 +1,17 @@
+POST http://localhost:8000
+Content-Type: application/json
+
+{
+  "name": "Yoghurt",
+  "calories": 60,
+  "price": 12,
+  "id": 11
+}
+
+###
+
+GET http://localhost:8000
+
+###
+
+DELETE http://localhost:8000
