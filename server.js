@@ -129,9 +129,21 @@ app.delete('/', (req, res) => {
 })
 
 
+// Updates the price of a product
 app.put('/', (req, res) => {
+  const newPrice = 149
 
+  products.forEach((product) => {
+    if (product.name === "Steak") {
+      product.price = newPrice
+      // console.log('I found Steak')
+    }
+  })
+
+  res.json(products)
 })
+
+
 
 app.listen(port, (req, res) => {
   console.log(`Server is running on http://localhost${port}`)
