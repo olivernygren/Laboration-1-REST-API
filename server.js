@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-
 const port = 8000;
 
+// Array of product-objects
 let products = 
 [
   {
@@ -75,7 +75,6 @@ app.get('/', (req, res) => {
   res.json(products)
 })
 
-
 // Get product with specific ID
 app.get('/product/:id', (req, res) => {
   const id = req.params.id;
@@ -91,6 +90,7 @@ app.get('/product/:id', (req, res) => {
   res.json(foundProduct)
 })
 
+
 // Adds new object to array with unique id 
 app.post('/', (req, res) => {
 
@@ -99,7 +99,7 @@ app.post('/', (req, res) => {
   const priceToSave = req.body.price;
   let idToSave = 0;
 
-  // loop through products to give new product unique id
+  // loops through products to give new product unique id
   products.forEach((product) => {
     if (product.id > idToSave) {
       idToSave = product.id;
@@ -107,7 +107,7 @@ app.post('/', (req, res) => {
   })
   idToSave++
 
-  // push new product into array
+  // Pushes new product into array
   products.push({
     id: idToSave,
     name: nameToSave,
@@ -133,10 +133,10 @@ app.delete('/', (req, res) => {
 app.put('/', (req, res) => {
   const newPrice = 149
 
+  // Finds product with name "Steak" and updates its price
   products.forEach((product) => {
     if (product.name === "Steak") {
       product.price = newPrice
-      // console.log('I found Steak')
     }
   })
 
