@@ -69,29 +69,65 @@ let products =
 
 app.use(express.json());
 
+
 // Gets all objects from the product array
 app.get('/', (req, res) => {
   res.json(products)
 })
 
+
 // Get product with specific ID
-app.get('/product', (req, res) => {
-  const itemID = 3
-  const item = products.find(p => p.id === itemID);
-  res.json(item)
+app.get('/product/:id', (req, res) => {
+  const id = req.params.id;
+
+  const foundProduct = products.find((product) => {
+    return product.id == id
+  })
+
+  if (!foundProduct) {
+    res.json({ "error": "No product matches this ID. Try again" })
+  }
+
+  res.json(foundProduct)
 })
 
-// Pushes a new object (Yoghurt) into the product array
+// Adds new object to array with unique id 
 app.post('/', (req, res) => {
-  products.push(req.body)
-  res.status(201).json(req.body)
+
+  const nameToSave = req.body.name;
+  const caloriesToSave = req.body.calories;
+  const priceToSave = req.body.price;
+  let idToSave = 0;
+
+  // loop through products to give new product unique id
+  products.forEach((product) => {
+    if (product.id > idToSave) {
+      idToSave = product.id;
+    }
+  })
+  idToSave++
+
+  // push new product into array
+  products.push({
+    id: idToSave,
+    name: nameToSave,
+    calories: caloriesToSave,
+    price: priceToSave
+  })
+
+  res.json({
+    status: "Saved new product"
+  })
 })
+
 
 // Deletes rice from the product array
 app.delete('/', (req, res) => {
-  const deletedProduct = products.splice(4, 1) // saves the spliced product array
+  const itemID = 4
+  const deletedProduct = products.splice(itemID, 1) // saves the spliced product array
   res.json(deletedProduct) // outputs the array
 })
+
 
 app.put('/', (req, res) => {
 
