@@ -6,68 +6,68 @@ const port = 8000;
 let products = 
 [
   {
+    id: 1,
     name: 'Potato',
     calories: 76,
-    price: 11,
-    id: 1
+    price: 11
   },
   {
+    id: 2,
     name: 'Steak',
     calories: 116,
-    price: 249,
-    id: 2
+    price: 249
   },
   {
+    id: 3,
     name: 'Orange',
     calories: 49,
-    price: 20,
-    id: 3
+    price: 20
   },
   {
+    id: 4,
     name: 'Spinach',
     calories: 16,
-    price: 135,
-    id: 4
+    price: 135
   },
   {
+    id: 5,
     name: 'Rice',
     calories: 354,
-    price: 22,
-    id: 5
+    price: 22
   },
   {
+    id: 6,
     name: 'Egg',
     calories: 155,
-    price: 45,
-    id: 6
+    price: 45
   },
   {
-    name: 'Whole Milk',
+    id: 7,
+    name: 'Milk',
     calories: 60,
-    price: 9,
-    id: 7
+    price: 9
   },
   {
+    id: 8,
     name: 'Cheese',
     calories: 402,
-    price: 129,
-    id: 8
+    price: 129
   },
   {
+    id: 9,
     name: 'Carrot',
     calories: 36,
-    price: 15,
-    id: 9
+    price: 15
   },
   {
+    id: 10,
     name: 'Butter',
     calories: 716,
-    price: 99,
-    id: 10
+    price: 99
   }
 ]
 
-app.use(express.static('./public'))
+// app.use(express.static('./public'))
 app.use(express.json());
 
 

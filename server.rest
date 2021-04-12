@@ -10,16 +10,19 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8000
+// Get all products
 
 ###
 
-GET http://localhost:8000/product/5
+GET http://localhost:8000/product/2
 // Get product with specific id v2
 
 ###
 
 DELETE http://localhost:8000
+// Deletes rice from product list
 
 ###
 
 PUT http://localhost:8000
+// Updates the price of steak

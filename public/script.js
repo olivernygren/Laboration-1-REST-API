@@ -30,6 +30,7 @@ async function init() {
 
 async function getAllProducts() {
   const products = await makeRequest('/', 'GET')
+  console.log(products)
   return products
 }
 
@@ -56,6 +57,7 @@ async function deleteProduct() {
 
 
 async function makeRequest(url, method, body) {
+  
   const response = await fetch(url, {
     method: method,
     body: JSON.stringify(body),
