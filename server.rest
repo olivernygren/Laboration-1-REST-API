@@ -1,3 +1,13 @@
+GET http://localhost:8000
+// Get all products
+
+###
+
+GET http://localhost:8000/product/7
+// Get product with specific id v2
+
+###
+
 POST http://localhost:8000
 Content-Type: application/json
 
@@ -9,20 +19,15 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8000
-// Get all products
-
-###
-
-GET http://localhost:8000/product/2
-// Get product with specific id v2
+PUT http://localhost:8000
+// Updates the price of steak
+// returnera nytt objekt eller inget (204)
+// find, delete and replace
 
 ###
 
 DELETE http://localhost:8000
 // Deletes rice from product list
+// skicka tbx hela produkten eller inget (204)
 
 ###
-
-PUT http://localhost:8000
-// Updates the price of steak

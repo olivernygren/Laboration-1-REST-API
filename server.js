@@ -116,32 +116,34 @@ app.post('/', (req, res) => {
     price: priceToSave
   })
 
-  res.json({
-    status: "Saved new product"
-  })
+  res.status(201).send(`Saved new product with ID ${idToSave}`)
 })
 
 
 // Deletes rice from the product array
 app.delete('/', (req, res) => {
   const itemID = 4
-  const deletedProduct = products.splice(itemID, 1) // saves the spliced product array
-  res.json(deletedProduct) // outputs the array
+  const deletedProduct = products.splice(itemID, 1)[0] // saves the spliced product object
+  res.json(deletedProduct) // outputs the object
 })
 
 
 // Updates the price of a product
 app.put('/', (req, res) => {
   const newPrice = 149
+  const itemID = 1
 
-  // Finds product with name "Steak" and updates its price
-  products.forEach((product) => {
-    if (product.name === "Steak") {
-      product.price = newPrice
-    }
-  })
+  const updatedProduct = {
+    id: 2,
+    name: "Steak",
+    calories: 116,
+    price: newPrice
+  }
 
-  res.json(products)
+  // saves the spliced product object
+  const updatedProductObject = products.splice(itemID, 1, updatedProduct)[0] 
+
+  res.json(updatedProductObject)
 })
 
 
