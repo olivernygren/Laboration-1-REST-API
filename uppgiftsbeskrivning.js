@@ -30,7 +30,7 @@ VG-krav:
     - Koppla JSON-fil till server.js filen - X
 3. Datan i JSON-filen ska uppdateras då något läggs till, uppdateras eller tas bort
 4. Ett simpelt klientgränssnitt ska finnas för att anropa APIets olika endpoints, samt visa resultatet av ett GET-anrop
-    - Anropa GET för alla objekt och skriva ut dessa - X
+    - Anropa GET för alla objekt och skriva ut dessa - KLAR
     - Anropa POST och se nytt objekt eller alla objekt i array inkl nytt - X
     - Anropa PUT och få ut alla objekt med uppd objekt pris - X
     - Anropa DELETE och skriv ut vilket objekt som tagits bort - X

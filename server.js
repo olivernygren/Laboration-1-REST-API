@@ -67,14 +67,17 @@ let products =
   }
 ]
 
-// app.use(express.static('./public'))
 app.use(express.json());
 
 
+
+
 // Gets all objects from the product array
-app.get('/', (req, res) => {
+app.get('/products', (req, res) => {
   res.json(products)
 })
+
+app.use(express.static('./public'))
 
 // Get product with specific ID
 app.get('/product/:id', (req, res) => {
@@ -145,6 +148,7 @@ app.put('/', (req, res) => {
 
   res.json(updatedProductObject)
 })
+
 
 
 
