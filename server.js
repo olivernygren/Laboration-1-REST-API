@@ -88,7 +88,7 @@ app.get('/product/:id', (req, res) => {
   })
 
   if (!foundProduct) {
-    res.json({ "error": "No product matches this ID. Try again" })
+    res.status(404).json("Error: No product matches the specified ID")
   }
 
   res.json(foundProduct)
@@ -134,7 +134,6 @@ app.delete('/products/:id', (req, res) => {
     const deletedProduct = products.splice(productToDelete, 1)[0] // saves the spliced product object
     res.json(deletedProduct) // outputs the object
   }
-
 })
 
 
@@ -145,13 +144,14 @@ app.put('/products/:id', (req, res) => {
   const productToUpdate = products.findIndex((product) => {
     return product.id == id
   })
+  const doesProductIDExist = products.find(p => p.id == id)
 
-  // Defines the updated product as the body of the product-object in .rest file
+  if (!doesProductIDExist) {
+    return res.status(404).json("There appears to be no product with that ID")
+  }
+
   const updatedProduct = req.body
-
-  // Deletes and replaces product object
   products.splice(productToUpdate, 1, updatedProduct)[0]
-
   res.json(products)
 })
 
