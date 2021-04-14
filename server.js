@@ -70,8 +70,6 @@ let products =
 app.use(express.json());
 
 
-
-
 // Gets all objects from the product array
 app.get('/products/all', (req, res) => {
   res.json(products)

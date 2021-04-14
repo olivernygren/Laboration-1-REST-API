@@ -4,7 +4,7 @@ GET http://localhost:8000/products/all
 ###
 
 GET http://localhost:8000/product/7
-// Get product with specific id v2
+// Get product with specific id
 
 ###
 
@@ -31,8 +31,6 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8000/products/12
-// Deletes rice from product list
-// skicka tbx hela produkten eller inget (204)
+DELETE http://localhost:8000/products/1
 
 ###
