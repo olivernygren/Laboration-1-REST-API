@@ -73,11 +73,11 @@ app.use(express.json());
 
 
 // Gets all objects from the product array
-app.get('/products', (req, res) => {
+app.get('/products/all', (req, res) => {
   res.json(products)
 })
 
-app.use(express.static('./public'))
+// app.use(express.static('./public'))
 
 // Get product with specific ID
 app.get('/product/:id', (req, res) => {
@@ -96,7 +96,7 @@ app.get('/product/:id', (req, res) => {
 
 
 // Adds new object to array with unique id 
-app.post('/', (req, res) => {
+app.post('/products', (req, res) => {
 
   const nameToSave = req.body.name;
   const caloriesToSave = req.body.calories;
@@ -123,30 +123,30 @@ app.post('/', (req, res) => {
 })
 
 
-// Deletes rice from the product array
-app.delete('/', (req, res) => {
-  const itemID = 4
-  const deletedProduct = products.splice(itemID, 1)[0] // saves the spliced product object
+// Deletes object from the product array
+app.delete('/products/:id', (req, res) => {
+  const id = req.params.id
+  const deletedProduct = products.splice(id, 1)[0] // saves the spliced product object
+  // hantera delete för produkt som ej finns
   res.json(deletedProduct) // outputs the object
 })
 
 
 // Updates the price of a product
-app.put('/', (req, res) => {
-  const newPrice = 149
-  const itemID = 1
+app.put('/products/:id', (req, res) => {
 
-  const updatedProduct = {
-    id: 2,
-    name: "Steak",
-    calories: 116,
-    price: newPrice
-  }
+  const id = req.params.id
+  const productToUpdate = products.findIndex((product) => {
+    return product.id == id
+  })
 
-  // saves the spliced product object
-  const updatedProductObject = products.splice(itemID, 1, updatedProduct)[0] 
+  // Defines the updated product as the body of the product-object in .rest file
+  const updatedProduct = req.body
 
-  res.json(updatedProductObject)
+  // deletes and replaces product object
+  products.splice(productToUpdate, 1, updatedProduct)[0]
+
+  res.json(products)
 })
 
 

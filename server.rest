@@ -1,4 +1,4 @@
-GET http://localhost:8000
+GET http://localhost:8000/products/all
 // Get all products
 
 ###
@@ -8,7 +8,7 @@ GET http://localhost:8000/product/7
 
 ###
 
-POST http://localhost:8000
+POST http://localhost:8000/products
 Content-Type: application/json
 
 {
@@ -19,14 +19,19 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:8000
-// Updates the price of steak
-// returnera nytt objekt eller inget (204)
-// find, delete and replace
+PUT http://localhost:8000/products/2
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "Steak",
+  "calories": 116,
+  "price": 149
+}
 
 ###
 
-DELETE http://localhost:8000
+DELETE http://localhost:8000/products/4
 // Deletes rice from product list
 // skicka tbx hela produkten eller inget (204)
 
