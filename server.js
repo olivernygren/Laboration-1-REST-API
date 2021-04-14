@@ -126,9 +126,15 @@ app.post('/products', (req, res) => {
 // Deletes object from the product array
 app.delete('/products/:id', (req, res) => {
   const id = req.params.id
-  const deletedProduct = products.splice(id, 1)[0] // saves the spliced product object
-  // hantera delete för produkt som ej finns
-  res.json(deletedProduct) // outputs the object
+  
+  const productToDelete = products.find(p => p.id == id)
+  if (!productToDelete) {
+    return res.status(404).json("There appears to be no product with that ID")
+  } else {
+    const deletedProduct = products.splice(productToDelete, 1)[0] // saves the spliced product object
+    res.json(deletedProduct) // outputs the object
+  }
+
 })
 
 
@@ -143,7 +149,7 @@ app.put('/products/:id', (req, res) => {
   // Defines the updated product as the body of the product-object in .rest file
   const updatedProduct = req.body
 
-  // deletes and replaces product object
+  // Deletes and replaces product object
   products.splice(productToUpdate, 1, updatedProduct)[0]
 
   res.json(products)
