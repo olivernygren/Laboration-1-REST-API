@@ -23,4 +23,7 @@ G-krav:
 6. Uppgiften lämnas in i tid!
 
 VG-krav:
-5. Ytterligare en GET endpoint skall läggas till där det går att hämta ett specifikt objekt
+
+Ytterligare en GET endpoint skall läggas till där det går att hämta ett specifikt objekt
+
+(Länk till GitHub repo)[https://github.com/olivernygren/Laboration-1-REST-API]
