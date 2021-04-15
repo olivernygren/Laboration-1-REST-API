@@ -26,4 +26,4 @@ VG-krav:
 
 Ytterligare en GET endpoint skall läggas till där det går att hämta ett specifikt objekt
 
-(Länk till GitHub repo)[https://github.com/olivernygren/Laboration-1-REST-API]
+[Länk till GitHub repo](https://github.com/olivernygren/Laboration-1-REST-API)
