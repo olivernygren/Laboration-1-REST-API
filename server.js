@@ -121,20 +121,6 @@ app.post('/products', (req, res) => {
 })
 
 
-// Deletes object from the product array
-app.delete('/products/:id', (req, res) => {
-  const id = req.params.id
-  
-  const productToDelete = products.find(p => p.id == id)
-  if (!productToDelete) {
-    return res.status(404).json("There appears to be no product with that ID")
-  } else {
-    const deletedProduct = products.splice(productToDelete, 1)[0] // saves the spliced product object
-    res.json(deletedProduct) // outputs the object
-  }
-})
-
-
 // Updates the price of a product
 app.put('/products/:id', (req, res) => {
 
@@ -143,16 +129,32 @@ app.put('/products/:id', (req, res) => {
     return product.id == id
   })
   const doesProductIDExist = products.find(p => p.id == id)
-
+  
   if (!doesProductIDExist) {
     return res.status(404).json("There appears to be no product with that ID")
   }
-
+  
   const updatedProduct = req.body
   products.splice(productToUpdate, 1, updatedProduct)[0]
   res.json(products)
 })
 
+
+// Deletes object from the product array
+app.delete('/products/:id', (req, res) => {
+  const id = req.params.id
+  const productToDelete = products.findIndex((product) => {
+    return product.id == id
+  })
+  const doesProductIDExist = products.find(p => p.id == id)
+
+  if (!doesProductIDExist) {
+    return res.status(404).json("There appears to be no product with that ID")
+  }
+  
+  const deletedProduct = products.splice(productToDelete, 1)[0] // saves the spliced product object
+  res.json(deletedProduct) // outputs the object
+})
 
 
 

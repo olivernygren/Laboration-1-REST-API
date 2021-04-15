@@ -3,7 +3,7 @@ GET http://localhost:8000/products/all
 
 ###
 
-GET http://localhost:8000/product/7
+GET http://localhost:8000/product/2
 // Get product with specific id
 
 ###
@@ -31,6 +31,6 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8000/products/1
+DELETE http://localhost:8000/products/7
 
 ###
